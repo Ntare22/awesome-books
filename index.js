@@ -1,25 +1,25 @@
 let books = [
   {
     id: 1,
-    title: 'awesome books',
-    author: 'Jim Ntare',
-  },
-  {
-    id: 2,
-    title: 'awesome books',
-    author: 'Abel Herrera',
+    title: 'Example book title',
+    author: 'Jim Ntare & Abel Herrera',
   },
 ];
 
 function removeBook(item) {
   books = books.filter(book => book.id !== item.id);
   booksContainer.innerHTML = '';
+  preserveBookShelf();
   populateBooks();
 }
 
 const booksContainer = document.getElementById('books');
 const addBookForm = document.querySelector('#add-book');
 function populateBooks() {
+  if(window.localStorage.getItem('bookShelf')){
+    let storage = window.localStorage.getItem('bookShelf') 
+    books = JSON.parse(storage)
+  }
   books.forEach((book) => {
     const bookContainer = document.createElement('div');
     bookContainer.classList = 'card';
@@ -47,6 +47,14 @@ addBookForm.addEventListener('submit',(event) => {
   const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
   books.push({id: uniqueId,title: document.querySelector('#title').value, author: document.querySelector('#author').value})
   booksContainer.innerHTML = '';
+  preserveBookShelf();
   populateBooks();
 })
+
+let bookShelf = ''
+function preserveBookShelf() {
+  bookShelf = JSON.stringify(books)
+  window.localStorage.setItem('bookShelf', bookShelf)
+}
+
 
