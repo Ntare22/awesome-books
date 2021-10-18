@@ -16,23 +16,35 @@ function removeBook(item) {
 }
 
 const booksContainer = document.getElementById('books');
-
-books.forEach((book) => {
-  const bookContainer = document.createElement('div');
-  bookContainer.classList = 'card';
-
-  const bookTitle = document.createElement('h3');
+const addBookForm = document.querySelector('#add-book');
+function populateBooks() {
+  books.forEach((book) => {
+    const bookContainer = document.createElement('div');
+    bookContainer.classList = 'card';
+    
+    const bookTitle = document.createElement('h3');
   const bookAuthor = document.createElement('p');
   const removeBtn = document.createElement('button');
 
   removeBtn.addEventListener('click', () => removeBook(book));
-
+  
   bookTitle.innerHTML = book.title;
   bookAuthor.innerHTML = book.author;
   removeBtn.innerHTML = 'Remove';
-
+  
   bookContainer.appendChild(bookTitle);
   bookContainer.appendChild(bookAuthor);
   bookContainer.appendChild(removeBtn);
   booksContainer.appendChild(bookContainer);
 });
+}
+populateBooks();
+
+addBookForm.addEventListener('submit',(event) => {
+  event.preventDefault()
+  const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
+  books.push({id: uniqueId,title: document.querySelector('#title').value, author: document.querySelector('#author').value})
+  booksContainer.innerHTML = '';
+  populateBooks();
+})
+
