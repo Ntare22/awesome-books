@@ -1,4 +1,4 @@
-const books = [
+let books = [
   {
     id: 1,
     title: 'awesome books',
@@ -12,7 +12,9 @@ const books = [
 ];
 
 function removeBook(item) {
-  console.log(item);
+  books = books.filter(book => book.id !== item.id);
+  booksContainer.innerHTML = '';
+  populateBooks();
 }
 
 const booksContainer = document.getElementById('books');
@@ -22,7 +24,7 @@ function populateBooks() {
     const bookContainer = document.createElement('div');
     bookContainer.classList = 'card';
     
-    const bookTitle = document.createElement('h3');
+  const bookTitle = document.createElement('h3');
   const bookAuthor = document.createElement('p');
   const removeBtn = document.createElement('button');
 
