@@ -44,11 +44,19 @@ populateBooks();
 
 addBookForm.addEventListener('submit',(event) => {
   event.preventDefault()
-  const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
-  books.push({id: uniqueId,title: document.querySelector('#title').value, author: document.querySelector('#author').value})
-  booksContainer.innerHTML = '';
-  preserveBookShelf();
-  populateBooks();
+  let title = document.querySelector('#title').value;
+  let author = document.querySelector('#author').value;
+  if (title !== '' && author !== '') {
+    const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
+    books.push({id: uniqueId,title: document.querySelector('#title').value, author: document.querySelector('#author').value})
+    booksContainer.innerHTML = '';
+    preserveBookShelf();
+    populateBooks();
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+  } else {
+    alert('Please enter title and/or author')
+  }
 })
 
 let bookShelf = ''
