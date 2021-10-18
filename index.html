@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
+
 <body>
-  
+  <header>
+    <h1>Awesome books</h1>
+  </header>
+  <main>
+    <section>
+      <div class="card">
+        <h3>Lorem, ipsum dolor.</h3>
+        <span>Lorem, ipsum.</span>
+        <button type="button">Remove</button>
+      </div>
+    </section>
+    <section>
+      <form action="POST">
+        <ul>
+          <li>
+            <label for="title"></label>
+            <input type="text" placeholder="Title" id="title" name="title">
+          </li>
+          <li>
+            <label for="author"></label>
+            <input type="text" name="author" id="author" placeholder="Author">
+          </li>
+          <button type="submit">Add</button>
+        </ul>
+      </form>
+    </section>
+  </main>
+  <footer></footer>
+
 </body>
+
 </html>
