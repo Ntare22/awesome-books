@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <h1>Awesome books</h1>
+  </header>
+  <main>
+    <section id="book-shelf">
+      <div id="books"></div>
+    </section>
+
+    <section id="form-section">
+      <h2>Add your favourite books here!</h2>
+      <form id="add-book" action="POST">
+            <label class="add-book-label" for="title"><span>Title</span>
+            <input type="text" placeholder="Moby-Dick; or, The Whale" id="title" name="title" required class="add-book-input">
+          </label>
+            <label class="add-book-label" for="author">
+              <span>Author</span>
+            <input type="text" name="author" id="author" placeholder="Herman Melville" required class="add-book-input"></label>
+        <button class="add-book-button" type="submit">Add</button>
+      </form>
+    </section>
+  </main>
+  <footer></footer>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
