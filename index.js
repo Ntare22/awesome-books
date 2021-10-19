@@ -1,9 +1,4 @@
-let books = [{
-  id: 1,
-  title: 'Example book title',
-  author: 'Jim Ntare & Abel Herrera',
-}, ];
-
+const bookStand = document.querySelector('#books')
 class Book {
   constructor(title, author, id) {
     this.title = title;
@@ -12,32 +7,48 @@ class Book {
   }
 }
 
-
-function removeBook(item) {
-  books = books.filter(book => book.id !== item.id);
-  booksContainer.innerHTML = '';
-  preserveBookShelf();
-  populateBooks();
+class BookShelf {
+  constructor(books = []) {
+    this.books = books
+  }
+  set addBook(uniqueId) {
+    const newBook = new Book(document.querySelector('#title').value, document.querySelector('#title').value, uniqueId)
+    this.books.unshift(newBook)
+    this.preserveData()
+    fillBookShelf()
+  };
+  set removeBook(book) {
+    this.books = this.books.filter((el) => el.id !== book.id)
+    this.preserveData()
+    fillBookShelf()
+  }
+  preserveData() {
+    let data = JSON.stringify(this.books)
+    window.localStorage.setItem('data', data)
+  }
 }
 
-const booksContainer = document.getElementById('books');
-const addBookForm = document.querySelector('#add-book');
+let bookShelf = new BookShelf()
+document.querySelector('#add-book').addEventListener('submit', (event) => {
+  event.preventDefault()
+  const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
+  bookShelf.addBook = uniqueId
+})
 
-function populateBooks() {
-  if (window.localStorage.getItem('bookShelf')) {
-    let storage = window.localStorage.getItem('bookShelf')
-    books = JSON.parse(storage)
+function fillBookShelf() {
+  bookStand.innerHTML = '';
+  if (window.localStorage.getItem('data')) {
+    const storage = window.localStorage.getItem('data');
+    bookShelf.books = JSON.parse(storage);
   }
-  books.forEach((book) => {
+  bookShelf.books.forEach((book) => {
     const bookContainer = document.createElement('div');
     bookContainer.classList = 'card';
-
     const bookTitle = document.createElement('h3');
     const bookAuthor = document.createElement('p');
     const removeBtn = document.createElement('button');
-
-    removeBtn.addEventListener('click', () => removeBook(book));
-
+    // eslint-disable-next-line no-use-before-define
+    removeBtn.addEventListener('click', () => bookShelf.removeBook = book);
     bookTitle.innerHTML = book.title;
     bookAuthor.innerHTML = book.author;
     removeBtn.innerHTML = 'Remove';
@@ -45,32 +56,8 @@ function populateBooks() {
     bookContainer.appendChild(bookTitle);
     bookContainer.appendChild(bookAuthor);
     bookContainer.appendChild(removeBtn);
-    booksContainer.appendChild(bookContainer);
+    bookStand.appendChild(bookContainer);
   });
 }
-populateBooks();
 
-addBookForm.addEventListener('submit', (event) => {
-  event.preventDefault()
-  let title = document.querySelector('#title').value;
-  let author = document.querySelector('#author').value;
-  if (title !== '' && author !== '') {
-    const uniqueId = document.querySelector('#title').value + Math.floor(Math.random() * 1000)
-    let newBook = new Book(document.querySelector('#title').value,document.querySelector('#author').value,uniqueId)
-    books.push(newBook)
-    booksContainer.innerHTML = '';
-    preserveBookShelf();
-    populateBooks();
-    document.querySelector('#title').value = '';
-    document.querySelector('#author').value = '';
-  } else {
-    alert('Please enter title and/or author')
-  }
-})
-
-let bookShelf = ''
-
-function preserveBookShelf() {
-  bookShelf = JSON.stringify(books)
-  window.localStorage.setItem('bookShelf', bookShelf)
-}
+fillBookShelf();
