@@ -39,6 +39,8 @@ class BookShelf {
     this.books.unshift(newBook);
     this.preserveData();
     fillBookShelf();
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
   }
 
   set removeBook(book) {
