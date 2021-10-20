@@ -35,10 +35,12 @@ class BookShelf {
   }
 
   set addBook(uniqueId) {
-    const newBook = { title: document.querySelector('#title').value, author: document.querySelector('#title').value, id: uniqueId };
+    const newBook = { title: document.querySelector('#title').value, author: `By: ${document.querySelector('#title').value}`, id: uniqueId };
     this.books.unshift(newBook);
     this.preserveData();
     fillBookShelf();
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
   }
 
   set removeBook(book) {

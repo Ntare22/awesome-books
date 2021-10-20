@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'cocogoose-ultralight', 'Lato', sans-serif;
+  transition: 0.2s;
+  margin: 0 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: url('./assets/pattern.png');
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 36px;
+  color: rgb(29, 29, 73);
+}
+
+/* BOOK SHELF */
+
+#book-shelf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 54px 0;
+}
+
+#books {
+  background-color: whitesmoke;
+  border-radius: 4px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  height: 40vh;
+  overflow-y: scroll;
+  border: 1px solid palevioletred;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+#books:-webkit-scrollbar {
+  display: none !important;
+}
+
+/* CARDS */
+
+.card {
+  width: 100%;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  align-items: center;
+}
+
+.card:nth-child(even) {
+  background-color: rgba(200, 200, 234, 0.7);
+}
+
+.card:nth-child(odd) {
+  background-color: rgba(200, 200, 234, 0.4);
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card button {
+  padding: 8px;
+  font-weight: 600;
+  color: white;
+  border-radius: 4px;
+  box-shadow: none;
+  border: none;
+  background-color: rgb(145, 145, 212);
+}
+
+.card button:hover {
+  background-color: rgb(126, 126, 205);
+}
+
+/* FORM SECTION */
+
+#form-section {
+  margin: 54px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-section h2 {
+  color: rgb(29, 29, 73);
+  margin-bottom: 24px;
+}
+
+#add-book {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+.add-book-input {
+  border: none;
+  padding: 0 4px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.add-book-input:focus {
+  border: none;
+  outline: none;
+}
+
+.add-book-label {
+  border: 1px solid palevioletred;
+  padding: 12px 0;
+  margin: 8px;
+  border-radius: 5px;
+  position: relative;
+  background-color: rgb(232, 232, 246);
+  animation: none;
+  transition-duration: 100ms;
+  cursor: text;
+}
+
+.add-book-label:focus-within {
+  border: 2px solid palevioletred;
+}
+
+.add-book-label span {
+  position: absolute;
+  top: -8px;
+  background-color: rgb(232, 232, 246);
+  left: 4px;
+  font-size: 12px;
+  padding: 0 4px;
+}
+
+.add-book-button {
+  background-color: hsl(240, 44%, 65%);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  padding: 12px 0;
+  margin: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-book-button:hover {
+  background-color: hsl(240, 44%, 60%);
+}
