@@ -41,14 +41,31 @@ header {
   margin-right: 12px;
 }
 
- .nav-btns {
-   display: flex;
- }
+.nav-btns {
+  display: flex;
+}
 
- .nav-btns li {
-   margin: 0 12px;
-   font-weight: 600;
- }
+.nav-btns li {
+  margin: 0 12px;
+  font-weight: 600;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+/* DATE */
+#date {
+  background-color: #fff;
+  float: right;
+  margin: 20px 80px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
 /* BOOK SHELF */
 

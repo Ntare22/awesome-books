@@ -63,3 +63,23 @@ document.querySelector('#add-book').addEventListener('submit', (event) => {
 });
 
 fillBookShelf();
+
+function displaySection(target) {
+  const pageSections = document.querySelectorAll('section');
+  let i = 0;
+  while (i < pageSections.length) {
+    if (pageSections[i].id === target.classList[1] && pageSections[i].classList[0] === (undefined || 'hide')) {
+      pageSections[i].classList = 'show';
+    } else {
+      pageSections[i].classList = 'hide';
+    }
+    i += 1;
+  }
+}
+
+document.querySelectorAll('.nav-btn').forEach((navBtn) => navBtn.addEventListener('click', (event) => {
+  displaySection(event.target);
+}));
+
+// eslint-disable-next-line
+document.querySelector('#date').innerHTML = luxon.DateTime.now().toLocaleString(luxon.DateTime.DATETIME_MED);
