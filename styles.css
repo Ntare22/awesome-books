@@ -213,6 +213,13 @@ header {
   background-color: hsl(240, 44%, 60%);
 }
 
+.notice {
+  align-self: flex-end;
+  margin: 8px;
+  transition: all 400ms ease 0s;
+  opacity: 0;
+}
+
 /* CONTACT */
 
 #contact {
