@@ -42,9 +42,9 @@ class BookShelf {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('.notice').style.opacity = 1;
-    setTimeout( () => {
+    setTimeout(() => {
       document.querySelector('.notice').style.opacity = 0;
-    },1000)
+    }, 1000);
   }
 
   set removeBook(book) {
