@@ -12,14 +12,25 @@
 
 <body>
   <header>
-    <h1>Awesome books</h1>
+    <div class="logo-name">
+      <img class="logo" src="./assets/logo.png" alt="awsome books logo">
+      <h1>Awesome books</h1>
+    </div>
+    <nav>
+      <ul class="nav-btns">
+        <li class="nav-btn book-shelf">List</li>
+        <li class="nav-btn form-section">Add New</li>
+        <li class="nav-btn contact">Contact</li>
+      </ul>
+    </nav>
   </header>
   <main>
+    <div id="date"></div>
     <section id="book-shelf">
       <div id="books"></div>
     </section>
 
-    <section id="form-section">
+    <section id="form-section" class="hide">
       <h2>Add your favourite books here!</h2>
       <form id="add-book" action="POST">
             <label class="add-book-label" for="title"><span>Title</span>
@@ -31,9 +42,26 @@
         <button class="add-book-button" type="submit">Add</button>
       </form>
     </section>
-  </main>
-  <footer></footer>
 
+    <section id="contact" class="hide">
+      <h2 class="contact-title">Contact Information</h2>
+      <div class="contact-info">
+        <h3 class="contact-sub">Do you have any question or you just want to say Hi?<br>
+          You can reachout to us!
+        </h3>
+        <ul class="contact-lis">
+          <li class="contact-item">email: awesomebooks@asmbks.com</li>
+          <li class="contact-item">phone number: 123 74 756 789</li>
+          <li class="contact-item">adress: Street #, city, state</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy Awesome Books is created by Jim Ntare & Abel Herrera and is free to use.  
+</footer>
+
+  <script src="luxon.js"></script>
   <script src="./index.js"></script>
 </body>
 

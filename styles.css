@@ -17,8 +17,58 @@ ul {
 
 h1 {
   text-align: center;
-  margin-top: 36px;
   color: rgb(29, 29, 73);
+}
+
+/* NAVIGATION */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  box-shadow: 0 0 5px gray;
+}
+
+.logo-name {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  max-width: 44px;
+  height: auto;
+  margin-right: 12px;
+}
+
+.nav-btns {
+  display: flex;
+}
+
+.nav-btns li {
+  margin: 0 12px;
+  font-weight: 600;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+.nav-btn {
+  cursor: pointer;
+}
+
+/* DATE */
+#date {
+  background-color: rgba(255, 255, 255, 0.5);
+  float: right;
+  margin: 20px 80px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* BOOK SHELF */
@@ -40,7 +90,7 @@ h1 {
   align-items: center;
   width: 100%;
   max-width: 700px;
-  height: 40vh;
+  height: 60vh;
   overflow-y: scroll;
   border: 1px solid palevioletred;
   -ms-overflow-style: none !important;
@@ -161,4 +211,46 @@ h1 {
 
 .add-book-button:hover {
   background-color: hsl(240, 44%, 60%);
+}
+
+/* CONTACT */
+
+#contact {
+  margin: 54px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-title {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.contact-info {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 36px;
+  padding: 12px 24px;
+}
+
+.contact-sub {
+  margin: 24px 0;
+}
+
+.contact-item {
+  font-size: 20px;
+  padding: 8px;
+}
+
+/* FOOTER */
+
+footer {
+  background: white;
+  padding: 24px 36px;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
