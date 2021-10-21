@@ -41,6 +41,10 @@ class BookShelf {
     fillBookShelf();
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
+    document.querySelector('.notice').style.opacity = 1;
+    setTimeout( () => {
+      document.querySelector('.notice').style.opacity = 0;
+    },1000)
   }
 
   set removeBook(book) {
