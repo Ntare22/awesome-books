@@ -70,7 +70,7 @@ function displaySection(target) {
   while (i < pageSections.length) {
     if (pageSections[i].id === target.classList[1] && pageSections[i].classList[0] === (undefined || 'hide')) {
       pageSections[i].classList = 'show';
-    } else {
+    } else if(pageSections[i].id !== target.classList[1]) {
       pageSections[i].classList = 'hide';
     }
     i += 1;
